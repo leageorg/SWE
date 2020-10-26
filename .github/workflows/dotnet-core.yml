@@ -31,4 +31,4 @@ jobs:
       with:
         name: Product dotnetcore
         path: |            
-          MenuPlan/bin/Release/**/publish/**
+          MenuPlan/bin/Release/netcoreapp3.1/publish/**
