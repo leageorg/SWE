@@ -25,4 +25,4 @@ jobs:
     - name: Test
       run: dotnet test MenuPlan/MenuPlan.csproj --no-restore --verbosity normal
     - name: Publish
-      run: dotnet publish -c Release  
+      run: dotnet publish MenuPlan/MenuPlan.csproj -c Release  
