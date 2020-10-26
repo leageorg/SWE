@@ -26,3 +26,9 @@ jobs:
       run: dotnet test MenuPlan/MenuPlan.csproj --no-restore --verbosity normal
     - name: Publish
       run: dotnet publish MenuPlan/MenuPlan.csproj -c Release  
+    - name: Archive production artefakt
+      uses: actions/upload-artifact@v2
+      with:
+        name: dist-without-markdown
+        path: |            
+          MenuPlan/**/publish/**
