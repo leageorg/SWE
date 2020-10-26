@@ -29,6 +29,6 @@ jobs:
     - name: Archive production artefakt
       uses: actions/upload-artifact@v2
       with:
-        name: dist-without-markdown
+        name: Product dotnetcore
         path: |            
-          MenuPlan/**/publish/**
+          MenuPlan/bin/Release/**/publish/**
