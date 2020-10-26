@@ -24,3 +24,5 @@ jobs:
       run: dotnet build MenuPlan/MenuPlan.csproj --configuration Release --no-restore
     - name: Test
       run: dotnet test MenuPlan/MenuPlan.csproj --no-restore --verbosity normal
+    - name: Publish
+      run: dotnet publish -c Release  
