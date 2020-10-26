@@ -19,8 +19,8 @@ jobs:
       with:
         dotnet-version: 3.1
     - name: Install dependencies
-      run: dotnet restore MenuPlan.csproj
+      run: dotnet restore MenuPlan/MenuPlan.csproj
     - name: Build
-      run: dotnet build MenuPlan.csproj --configuration Release --no-restore
+      run: dotnet build MenuPlan/MenuPlan.csproj --configuration Release --no-restore
     - name: Test
-      run: dotnet test MenuPlan.csproj --no-restore --verbosity normal
+      run: dotnet test MenuPlan/MenuPlan.csproj --no-restore --verbosity normal
