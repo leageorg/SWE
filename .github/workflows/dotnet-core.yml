@@ -40,7 +40,7 @@ jobs:
     - name: show images 
       run: docker images
     - name: push to dockerhub
-      run: docker push leageorg/swe2020wm:tagname 
+      run: docker push leageorg/swe2020wm:abgabe 
 #      uses: docker/build-push-action@v1
 #      with:
 #        username: leageorg
