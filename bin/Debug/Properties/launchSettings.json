@@ -1,0 +1,48 @@
+{
+  "iisSettings": {
+    "windowsAuthentication": false,
+    "anonymousAuthentication": true,
+    "iisExpress": {
+      "applicationUrl": "http://localhost:57198",
+      "sslPort": 0
+    }
+  },
+  "$schema": "http://json.schemastore.org/launchsettings.json",
+  "profiles": {
+    "IIS Express": {
+      "commandName": "IISExpress",
+      "launchBrowser": true,
+      "launchUrl": "weatherforecast",
+      "environmentVariables": {
+        "ConnectionString": "mongodb://localhost:27017",
+        "DatabaseName": "MenuplanDb",
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "MenusCollectionName": "Menu"
+      }
+    },
+    "MenuPlan": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "launchUrl": "api/menu/heartbeat",
+      "environmentVariables": {
+        "ConnectionString": "mongodb://localhost:27017",
+        "DatabaseName": "MenuPlan",
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "MenusCollectionName": "Menu"
+      },
+      "applicationUrl": "http://localhost:5000"
+    },
+    "Docker": {
+      "commandName": "Docker",
+      "launchBrowser": true,
+      "launchUrl": "{Scheme}://{ServiceHost}:5000/api/menu",
+      "environmentVariables": {
+        "ConnectionString": "mongodb://localhost:27017",
+        "DatabaseName": "MenuPlan",
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "MenusCollectionName": "Menu"
+      },
+      "publishAllPorts": true
+    }
+  }
+}

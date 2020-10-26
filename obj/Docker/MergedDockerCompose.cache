@@ -1,0 +1,31 @@
+services:
+  databases:
+    container_name: menuplansvcdb
+    image: mongo:4.2-bionic
+    ports:
+    - published: 27017
+      target: 27017
+    restart: always
+    volumes:
+    - /data/configdb
+    - /data/db
+  menuplan:
+    build:
+      context: C:\Users\Maxi\.FH\SWE\12FacMicroservice\12FacMs
+      dockerfile: MenuPlan/Dockerfile
+    container_name: menuplansvc
+    environment:
+      ASPNETCORE_ENVIRONMENT: Production
+      ConnectionString: mongodb://databases:27017
+      DatabaseName: MenuPlan
+      MenusCollectionName: Menu
+    image: menuplanimg2:0.0.1-SNAPSHOT
+    links:
+    - databases
+    ports:
+    - published: 88
+      target: 80
+    - published: 5000
+      target: 5000
+    restart: always
+version: '3.4'

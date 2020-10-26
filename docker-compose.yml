@@ -1,0 +1,26 @@
+version: '3.4'
+
+services:
+  menuplan:
+    image: ${DOCKER_REGISTRY-}menuplanimg2:0.0.1-SNAPSHOT
+    container_name: menuplansvc
+    build:
+      context: .
+      dockerfile: MenuPlan/Dockerfile
+    restart: always
+    environment:
+    - ASPNETCORE_ENVIRONMENT=Production
+    - ConnectionString=mongodb://databases:27017
+    - DatabaseName=MenuPlan
+    - MenusCollectionName=Menu
+    links:
+      - "databases"
+  databases:
+    image: mongo:4.2-bionic
+    container_name: menuplansvcdb
+    restart: always
+    ports:
+      - "27017:27017"
+    volumes:
+      - /data/configdb
+      - /data/db
