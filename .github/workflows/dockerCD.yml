@@ -7,20 +7,26 @@ jobs:
     name: Push Docker image to Docker Hub
     runs-on: ubuntu-latest
     steps:
-      - name: Check out the repo
-        uses: actions/checkout@v2
-      - name: Push to Docker Hub
-        uses: docker/build-push-action@v1
-        with:
-          username: leageorg
-          password: guljajew
-          repository: leageorg/swe2020wm
-          tag_with_ref: true
-      - name: Push to GitHub Packages
-        uses: docker/build-push-action@v1
-        with:
-          username: leageorg
-          password: 007Armageddon1$
-          registry: docker.pkg.github.com
-          repository: leageorg/SWE/menums
-          tag_with_ref: true
+      - name: Login to Docker Hub
+        run: docker login --username=leageorg --password=guljajew
+      - name: show images 
+        run: docker images
+      - name: push to dockerhub
+        run: docker push leageorg/swe2020wm:abgabe 
+    #  - name: Check out the repo
+    #    uses: actions/checkout@v2
+    #  - name: Push to Docker Hub
+    #    uses: docker/build-push-action@v1
+    #    with:
+    #      username: leageorg
+    #      password: guljajew
+    #      repository: leageorg/swe2020wm
+    #      tag_with_ref: true
+    #  - name: Push to GitHub Packages
+    #    uses: docker/build-push-action@v1
+    #    with:
+    #      username: leageorg
+    #      password: 007Armageddon1$
+    #      registry: docker.pkg.github.com
+    #      repository: leageorg/SWE/menums
+    #      tag_with_ref: true
