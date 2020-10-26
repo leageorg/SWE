@@ -29,6 +29,9 @@ jobs:
     - name: Archive production artefakt
       uses: actions/upload-artifact@v2
       with:
-        name: Product dotnetcore
+        name: Production menums dotnetcore
         path: |            
           MenuPlan/bin/Release/netcoreapp3.1/publish/**
+    - uses: actions/checkout@v2
+    - name: Build  Docker image
+      run: docker build MenuPlan/. --file Dockerfile --tag menumsimage:$(date +%s)
