@@ -13,6 +13,6 @@ jobs:
         uses: docker/build-push-action@v1
         with:
           username: leageorg
-          password: markus.franz.wagner@gmx.at
+          password: guljajew
           repository: leageorg/swe2020wm
           tag_with_ref: true
