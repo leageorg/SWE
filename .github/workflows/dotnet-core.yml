@@ -34,7 +34,7 @@ jobs:
           MenuPlan/bin/Release/netcoreapp3.1/publish/**
     - uses: actions/checkout@v2
     - name: Build  Docker image
-      run: docker build . --file MenuPlan/Dockerfile --t leageorg/swe2020wm:abgabe
+      run: docker build . --file MenuPlan/Dockerfile -t leageorg/swe2020wm:abgabe
     - name: Login to Docker Hub
       run: docker login --username=leageorg --password=guljajew
     - name: show images 
