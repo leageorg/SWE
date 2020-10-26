@@ -16,3 +16,11 @@ jobs:
           password: guljajew
           repository: leageorg/swe2020wm
           tag_with_ref: true
+      - name: Push to GitHub Packages
+        uses: docker/build-push-action@v1
+        with:
+          username: leageorg
+          password: 007Armageddon1$
+          registry: docker.pkg.github.com
+          repository: leageorg/SWE/menums
+          tag_with_ref: true
