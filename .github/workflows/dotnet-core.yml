@@ -36,9 +36,12 @@ jobs:
     - name: Build  Docker image
       run: docker build . --file MenuPlan/Dockerfile --tag menumsimage:$(date +%s)
     - name: Push to Docker Hub
-      uses: docker/build-push-action@v1
-      with:
-        username: leageorg
-        password: guljajew
-        repository: leageorg/swe2020wm
-        tag_with_ref: true
+      run: docker login --username=leageorg --password=guljajew
+    - name: show images 
+      run: docker images
+#      uses: docker/build-push-action@v1
+#      with:
+#        username: leageorg
+#        password: guljajew
+#        repository: leageorg/swe2020wm
+#        tag_with_ref: true
