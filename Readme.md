@@ -36,8 +36,8 @@ DockerHubRepository | [DockerHub](https://hub.docker.com/repository/docker/leage
     - Ohne Docker-Container direkt im OS
     - In Docker-Container, gemeinsam mit dem DB-Service(Mongo) mittels Docker-Compose startbar.
 
-# **Starten-**Menu-Service (Wirtshaus-Menü-Service)
-1. **Hole.Docker-Compose-Configuration** [Github-Produktion](https://github.com/leageorg/SWE-Produkt)
+# Starten-Menu-Service (Wirtshaus-Menü-Service)
+1. Hole.Docker-Compose-Configuration [Github-Produktion](https://github.com/leageorg/SWE-Produkt)
 2. Kommandozeile  `docker-compose up`
-3. **Testen **[ Get-All](http://localhost:88/api/menu/)
+3. Testen [ Get-All](http://localhost:88/api/menu/)
 4. Kommandozeile  `docker-compose down`
