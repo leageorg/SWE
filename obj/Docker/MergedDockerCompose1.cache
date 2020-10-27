@@ -1,0 +1,55 @@
+services:
+  databases:
+    container_name: menuplansvcdb
+    image: mongo:4.2-bionic
+    ports:
+    - published: 27017
+      target: 27017
+    restart: always
+    volumes:
+    - /data/configdb
+    - /data/db
+  menuplan:
+    build:
+      context: C:\Users\Maxi\.FH\SWE\12FacMicroservice\12FacMs
+      dockerfile: MenuPlan/Dockerfile
+      labels:
+        com.microsoft.created-by: visual-studio
+        com.microsoft.visual-studio.project-name: MenuPlan
+      target: base
+    container_name: menuplansvc
+    entrypoint: tail -f /dev/null
+    environment:
+      ASPNETCORE_ENVIRONMENT: Production
+      ASPNETCORE_LOGGING__CONSOLE__DISABLECOLORS: "true"
+      ConnectionString: mongodb://databases:27017
+      DOTNET_USE_POLLING_FILE_WATCHER: '1'
+      DatabaseName: MenuPlan
+      MenusCollectionName: Menu
+      NUGET_FALLBACK_PACKAGES: /root/.nuget/fallbackpackages
+    image: menuplanimg2:dev
+    labels:
+      com.microsoft.visualstudio.debuggee.arguments: ' --additionalProbingPath /root/.nuget/packages
+        --additionalProbingPath /root/.nuget/fallbackpackages  "/app/bin/Debug/netcoreapp3.1/MenuPlan.dll"'
+      com.microsoft.visualstudio.debuggee.killprogram: /bin/sh -c "if PID=$$(pidof
+        dotnet); then kill $$PID; fi"
+      com.microsoft.visualstudio.debuggee.program: dotnet
+      com.microsoft.visualstudio.debuggee.workingdirectory: /app
+    links:
+    - databases
+    ports:
+    - published: 88
+      target: 80
+    - published: 5000
+      target: 5000
+    restart: always
+    tty: true
+    volumes:
+    - C:\Users\Maxi\.FH\SWE\12FacMicroservice\12FacMs\MenuPlan:/app:rw
+    - C:\Users\markus.wagner\vsdbg\vs2017u5:/remote_debugger:rw
+    - C:\Users\markus.wagner\AppData\Roaming\ASP.NET\Https:/root/.aspnet/https:ro
+    - C:\Users\markus.wagner\AppData\Roaming\Microsoft\UserSecrets:/root/.microsoft/usersecrets:ro
+    - C:\Microsoft\Xamarin\NuGet:/root/.nuget/fallbackpackages:ro
+    - C:\Users\markus.wagner\.nuget\packages:/root/.nuget/packages:ro
+    - C:\Users\Maxi\.FH\SWE\12FacMicroservice\12FacMs:/src:rw
+version: '3.4'

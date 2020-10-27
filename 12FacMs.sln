@@ -9,6 +9,7 @@ Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-co
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{582CCD38-9BB1-455E-BC27-8C8A46FE073B}"
 	ProjectSection(SolutionItems) = preProject
+		Factors.md = Factors.md
 		Readme.md = Readme.md
 	EndProjectSection
 EndProject
